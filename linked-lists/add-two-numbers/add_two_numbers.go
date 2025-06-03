@@ -1,13 +1,10 @@
 package add_two_numbers
 
-type ListNode struct {
-	Val int
-	Next *ListNode
-}
+import listnode "github.com/gustavogabana/leetcodegrind/structs"
 
-func AddTwoNumbers(l1 *ListNode, l2 *ListNode) *ListNode {
+func AddTwoNumbers(l1 *listnode.ListNode, l2 *listnode.ListNode) *listnode.ListNode {
 	carry := 0
-	dummy := &ListNode{}
+	dummy := &listnode.ListNode{}
 	current := dummy
 	for l1 != nil || l2 != nil || carry != 0 {
 		value1 := 0
@@ -23,7 +20,7 @@ func AddTwoNumbers(l1 *ListNode, l2 *ListNode) *ListNode {
 		sum := value1 + value2 + carry
 		digit := sum % 10
 		carry = sum / 10
-		current.Next = &ListNode{Val: digit}
+		current.Next = &listnode.ListNode{Val: digit}
 		current = current.Next
 	}
 	return dummy.Next
